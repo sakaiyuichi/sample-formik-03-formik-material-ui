@@ -72,8 +72,6 @@ const initValues = {
     myCheck3: true,
     myRadio: '',
     myDate: null,
-    // myTime: null,
-    // myDateTime: null,
 }
 
 // バリデーションスキーマ
@@ -110,15 +108,6 @@ const validationSchema = Yup.object().shape({
     myDate: Yup.date()
         .nullable()
         .required('入力してください'),
-    // .required('入力してください'),
-    // .min(new Date(2020, 1, 1), '範囲外です')
-        // .max(new Date(2020, 12, 31), '範囲外です'),
-    // myTime: Yup.date()
-        // .required('選択してください')
-    // myDateTime: Yup.date()
-        // .required('選択してください')
-        // .min(new Date(2020, 1, 1, 0, 0, 0), '範囲外です')
-        // .max(new Date(2020, 12, 31, 23, 59, 59), '範囲外です'),
 })
 
 // ボタンクリック時
@@ -137,8 +126,6 @@ const onSubmit = (values, { setSubmitting }) => {
             "myCheck3: " + values.myCheck3 + "\n" +
             "myRadio: " + values.myRadio + "\n" +
             "日付: " + ymd + "\n"
-            // "時刻: " + format(values.myTime, 'HH:mm:ss') + "\n" +
-            // "日付時刻: " + format(values.myDateTime, 'yyyy-MM-dd HH:mm:ss')
         )
     }, 500)
 }
@@ -222,29 +209,7 @@ const Sample = () => {
                                     locale={ja}
                                     // helperText={errors.myDate ? errors.myDate : "必須入力＆本日より前後3日以内の日付のみ入力可"}
                                 />
-                                {/* {errors.myDate && touched.myDate ? (
-                                    <div style={myErrStyle}>{errors.myDate}</div>
-                                ) : null} */}
                             </div>
-                            {/*
-                            <div style={myStyle}>
-                                <Field
-                                    component={KeyboardTimePicker}
-                                    name="myTime"
-                                    label="時刻"
-                                    format="HH:mm:ss"
-                                    locale={ja}
-                                />
-                            </div>
-                            <div style={myStyle}>
-                                <Field
-                                    component={KeyboardDateTimePicker}
-                                    name="myDateTime"
-                                    label="日付時刻"
-                                    format="yyyy-MM-dd HH:mm:ss"
-                                    locale={ja}
-                                />
-                            </div> */}
                             <div style={myStyle}>
                                 <Button type="submit" variant="contained" color="primary" disabled={isSubmitting}>入力された値の表示</Button>
                             </div>
